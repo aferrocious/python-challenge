@@ -25,6 +25,9 @@ for Candidate in Unique_Candidates:
     Votes = Candidate_Votes.get(Candidate, 0)
     Percentage = Candidate_Percentages.get(Candidate, 0)
     Candidate_Results.append(f"{Candidate}: {Percentage: .3f}% ({Votes})")
+    
+#Determine Winner based on maximum votes
+Winner = Candidate_Votes.idxmax()
 
 #Prepare election result analysis summary to be printed to .txt
 election_analysis = (
@@ -34,7 +37,9 @@ election_analysis = (
     "--------------------------\n"
     + "\n".join(Candidate_Results) + "\n"
     "--------------------------\n"
-    )
+    f"Winner: {Winner}\n"
+    "--------------------------"
+)
 
 #Print election results to terminal
 print(election_analysis)
